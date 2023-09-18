@@ -1,5 +1,5 @@
 build:
-	tinygo build -o ./wasm/main.wasm -target wasm ./wasm/main.go
+	tinygo build -o ./src/wasm/static/main.wasm -target wasm ./src/wasm/cmd/main.go
 
 start:
 	go run main.go
