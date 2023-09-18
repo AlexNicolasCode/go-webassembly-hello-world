@@ -8,6 +8,10 @@
 </head>
 <body>
     <script src="../../main/config/wasm_exec.js"></script>
-    <script src="./index.js"></script>
+    <script async type="module">
+        import { initWasm } from "./index.js"
+        const { add } = await initWasm()
+        console.log(add(10, 5))
+    </script>
 </body>
 </html>

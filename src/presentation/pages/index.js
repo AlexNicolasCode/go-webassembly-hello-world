@@ -1,7 +1,10 @@
-const go = new Go();
-const init = async () => {
-    const { instance } = await WebAssembly.instantiateStreaming(fetch("../../wasm/static/main.wasm"), go.importObject)
+export const initWasm = async () => {
+    const go = new Go();
+    const { instance } = await WebAssembly.instantiateStreaming(
+        fetch("../../wasm/static/main.wasm"),
+        go.importObject,
+    )
     go.run(instance)
-    console.log(instance.exports.add(10, 3));
+    const add = instance.exports.add;
+    return { add }
 }
-init()
