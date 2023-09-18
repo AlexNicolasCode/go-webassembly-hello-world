@@ -7,11 +7,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
+    <div id="root"></div>
     <script src="../../main/config/wasm_exec.js"></script>
     <script async type="module">
         import { initWasm } from "./index.js"
         const { add } = await initWasm()
-        console.log(add(10, 5))
+        const $root = document.querySelector('#root')
+        const content = document.createTextNode(`${add(10, 5)}`)
+        $root.appendChild(content)
     </script>
 </body>
 </html>
